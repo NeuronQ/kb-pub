@@ -1,0 +1,124 @@
+#+TITLE: VirtualBox
+
+* Networking
+
+Docs:
+- https://www.virtualbox.org/manual/UserManual.html#networkingdetails
+- https://technology.amis.nl/2018/07/27/virtualbox-networking-explained/#prettyPhoto
+- https://blogs.oracle.com/scoter/networking-in-virtualbox-v2
+
+
+|           | VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN | Use case              |
+|-----------+------------+------------+-------------+---------------+--------------+-----------------------|
+| NAT       | +          | port fwd.  | -           | +             | port fwd.    | single VM testing     |
+|           |            |            |             |               |              | client apps dev       |
+|-----------+------------+------------+-------------+---------------+--------------+-----------------------|
+| NAT Netw. | +          | port fwd.  | +           | +             | port fwd.    | multi VM testing      |
+|           |            |            |             |               |              | (with net access)     |
+|-----------+------------+------------+-------------+---------------+--------------+-----------------------|
+| Host-only | +          | +          | +           | -             | -            | dev                   |
+|           |            |            |             |               |              | testing without net   |
+|-----------+------------+------------+-------------+---------------+--------------+-----------------------|
+| Internal  | -          | -          | +           | -             | -            | multi VMs work        |
+|           |            |            |             |               |              | (isolated)            |
+|-----------+------------+------------+-------------+---------------+--------------+-----------------------|
+| Bridged   | +          | +          | +           | +             | +            | complex server app    |
+|           |            |            |             |               |              | (multiple ports etc.) |
+
+** NAT
+This is the default and probably what you want for client apps needing to access the internet.
+Using *port forwarding* it can also be used for server apps in guests.
+
+- each Guest has /its own/ virtual Router
+- for Host <-> Guest communication
+  - port forwarding (configured individually for each VM)
+
+#+BEGIN_SRC 
+VM1 --> Router1 ------------------+
+        Internal IP: 192.168.0.1  |
+        External IP: host intf.   |
+                                  |
+VM2 --> Router2 ------------------+
+        Internal IP: 192.168.0.1  |
+        External IP: host intf.   |
+                                  |
+Host app -------------------------+--> Host intf. ------> Gateway / Router
+                                       IP: 10.10.10.2     Internal IP: 10.10.10.1
+                                                          External IP: 95.42.76.32
+#+END_SRC
+
+| VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN |
+|------------+------------+-------------+---------------+--------------|
+| +          | port fwd.  | -           | +             | port fwd.    |
+
+** Host-only
+VMs are connected to a virtual network interface on the host.
+VBox also provides DHCP service.
+Host <-> VMs works without need for port forwaridng or other config, but VMs cannot access the LAN/internet.
+
+#+BEGIN_SRC 
+VM1 -----------------------+---+---> Virtual Host Interface ---+
+Internal IP: 192.168.0.100 |   ^     IP: 192.168.0.1           |
+                           |   |                               |
+                           |   |                               |
+VM2 -----------------------+   |                               |
+Internal IP: 192.168.0.101     |                               |
+                               |                               |
+Host app ----------------------+---> Host intf. ---------------+---> Gateway / Router
+                                     IP: 10.10.10.2                  Internal IP: 10.10.10.1
+                                                                     External IP: 95.42.76.32
+#+END_SRC
+
+| VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN |
+|------------+------------+-------------+---------------+--------------|
+| +          | +          | +           | -             | -            |
+
+** NAT Network
+Like NAT but VMs share the router.
+Also, port forwarding is configured *per network* (defined in VBox settings), not per individual VM.
+
+#+BEGIN_SRC 
+VM1 -----------------------+---> Router1 ------------------+
+Internal IP: 192.168.0.8   |     Internal IP: 192.168.0.1  |
+                           |     External IP: host intf.   |
+                           |                               |
+VM2 -----------------------+                               |
+Internal IP: 192.168.0.9                                   |
+                                                           |
+Host app --------------------------------------------------+--> Host intf. ------> Gateway / Router
+                                                                IP: 10.10.10.2     Internal IP: 10.10.10.1
+                                                                                   External IP: 95.42.76.32
+#+END_SRC
+
+| VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN |
+|------------+------------+-------------+---------------+--------------|
+| +          | port fwd.  | +           | +             | port fwd.    |
+
+** Internal Networking
+The more barebones and fully-isolated version of Host-only:
+- DHCP optional - can configure either the VBox one set-up one yourself
+- isolated to other VMs on host
+- extra security features
+
+| VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN |
+|------------+------------+-------------+---------------+--------------|
+| -          | -          | +           | -             | -            |
+
+** Bridged networking
+
+#+BEGIN_SRC 
+VM1 -----------------------+---+
+Internal IP: 192.168.0.8   |   |
+                           |   |
+                           |   |
+VM2 -----------------------+   |
+Internal IP: 192.168.0.9       |
+                               |
+Host app ----------------------+---> Host intf. ------> Gateway / Router
+                                     IP: 10.10.10.2     Internal IP: 10.10.10.1
+                                                        External IP: 95.42.76.32
+#+END_SRC
+
+| VM -> Host | VM <- Host | VM1 <-> VM2 | VM -> Net/LAN | V <- Net/LAN |
+|------------+------------+-------------+---------------+--------------|
+| +          | +          | +           | +             | +            |

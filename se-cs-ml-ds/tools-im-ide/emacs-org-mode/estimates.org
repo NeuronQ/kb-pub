@@ -1,0 +1,86 @@
+#+TITLE: Task Estimate
+#+COLUMNS: %40ITEM %20EST{est+} %20EST(Naive EST) %CLOCKSUM
+
+* Fist Milestone
+
+** Task A
+
+*** Sub-task A1
+    :PROPERTIES:
+    :Uncertainty: 0
+    :END:
+Let's get into some details here...
+- one
+- two
+  - 2.5
+
+*** Sub-task A2
+
+**** Sub-task A2.2
+     :PROPERTIES:
+     :EST:      0.5-1
+     :Uncertainty: 5
+     :END:
+
+**** Sub-task A2.3
+     :PROPERTIES:
+     :EST:      1-2
+     :END:
+     :LOGBOOK:
+     CLOCK: [2020-05-23 Sat 20:27]
+     CLOCK: [2020-05-23 Sat 20:12]--[2020-05-23 Sat 20:18] =>  0:06
+     :END:
+
+** Task B
+
+*** Sub-task B1
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B2
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B3
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B4
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B5
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B6
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B7
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B8
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B9
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+*** Sub-task B10
+    :PROPERTIES:
+    :EST:      0.5-2.5
+    :END:
+
+* Second Milestone

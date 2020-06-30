@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScappleDocument Version="1.1" ID="1535A947-5102-4E2B-9918-5C88AEB7FD47">
+    <Notes>
+        <Note ID="12" FontSize="12.0" Position="200.0,194.0" Width="134.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Style="Square"></Border>
+            </Appearance>
+            <String>class Context
+- new(s : Strategy)</String>
+            <Formatting>
+                <FormatRange Italic="Yes">0,5</FormatRange>
+                <FormatRange Bold="Yes">6,7</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="13" FontSize="12.0" Position="201.027344,299.042969" Width="88.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>- execute(…)</String>
+            <ConnectedNoteIDs>17</ConnectedNoteIDs>
+            <PointsToNoteIDs>17</PointsToNoteIDs>
+        </Note>
+        <Note ID="14" FontSize="12.0" Position="201.027344,326.5" Width="28.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>- …</String>
+            <ConnectedNoteIDs>17</ConnectedNoteIDs>
+        </Note>
+        <Note ID="16" FontSize="12.0" Position="568.296875,269.03125" Width="127.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>interface Strategy</String>
+            <ConnectedNoteIDs>24</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Italic="Yes">0,9</FormatRange>
+                <FormatRange Bold="Yes">10,8</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="17" FontSize="12.0" Position="567.0,300.0" Width="187.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>- compute(…, [c : Context])</String>
+            <ConnectedNoteIDs>13-14</ConnectedNoteIDs>
+            <PointsToNoteIDs>14</PointsToNoteIDs>
+        </Note>
+        <Note ID="21" FontSize="12.0" Position="491.660156,409.851562" Width="160.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1" Style="Square"></Border>
+            </Appearance>
+            <String>class ConcreteStrategyA</String>
+            <ConnectedNoteIDs>22</ConnectedNoteIDs>
+            <PointsToNoteIDs>22</PointsToNoteIDs>
+            <Formatting>
+                <FormatRange Italic="Yes">0,5</FormatRange>
+                <FormatRange Bold="Yes">6,17</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="22" FontSize="12.0" Position="634.027344,336.339844" Width="20.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+            </Appearance>
+            <String>.</String>
+            <ConnectedNoteIDs>21, 23</ConnectedNoteIDs>
+        </Note>
+        <Note ID="23" FontSize="12.0" Position="683.898438,410.589844" Width="160.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1" Style="Square"></Border>
+            </Appearance>
+            <String>class ConcreteStrategyB</String>
+            <ConnectedNoteIDs>22</ConnectedNoteIDs>
+            <PointsToNoteIDs>22</PointsToNoteIDs>
+            <Formatting>
+                <FormatRange Italic="Yes">0,5</FormatRange>
+                <FormatRange Bold="Yes">6,17</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="24" FontSize="12.0" Position="201.105469,240.09375" Width="154.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>- _strategy : Strategy</String>
+            <ConnectedNoteIDs>16, 26</ConnectedNoteIDs>
+            <PointsToNoteIDs>16</PointsToNoteIDs>
+        </Note>
+        <Note ID="25" FontSize="12.0" Position="201.445312,268.933594" Width="200.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>- [setStrategy(s : Strategy)]</String>
+        </Note>
+        <Note ID="26" FontSize="12.0" Position="452.65625,123.714844" Width="327.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <TextColor>0.061 0.5 0.84</TextColor>
+            </Appearance>
+            <String>Keep the Strategy member variable(s) private, otherwise they practically become part of the Context’s public interface (it’s almost as if you inherit from Strategy!), unless the Strategy interface is very simple (eg.a single method)</String>
+            <ConnectedNoteIDs>24</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">37,7</FormatRange>
+                <FormatRange Italic="Yes">167,65</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="27" FontSize="12.0" Position="189.925781,486.925781" Width="238.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>class ContextA
+- new() {
+    super(new ConcreteStrategyA())
+}</String>
+            <ConnectedNoteIDs>29</ConnectedNoteIDs>
+            <PointsToNoteIDs>29</PointsToNoteIDs>
+            <Formatting>
+                <FormatRange Italic="Yes">0,6</FormatRange>
+                <FormatRange Bold="Yes">6,9</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="29" FontSize="12.0" Position="301.085938,358.625" Width="20.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+            </Appearance>
+            <String>.</String>
+            <ConnectedNoteIDs>27</ConnectedNoteIDs>
+        </Note>
+    </Notes>
+    <BackgroundShapes>
+        <Shape ID="15" Sticky="Yes" Position="190.394531,186.710938" Width="227.0" Height="184.289062">
+            <Appearance>
+                <Border Weight="1" Style="Square"></Border>
+            </Appearance>
+        </Shape>
+        <Shape ID="18" Sticky="Yes" Position="558.296875,254.03125" Width="204.0" Height="94.753906">
+            <Appearance>
+                <Border Weight="1" Style="Square"></Border>
+            </Appearance>
+        </Shape>
+        <Shape ID="28" Sticky="Yes" Position="176.0,473.398438" Width="258.0" Height="98.203125">
+            <Appearance>
+                <Border Weight="1" Style="Square"></Border>
+            </Appearance>
+        </Shape>
+    </BackgroundShapes>
+    <Stacks>
+        <Stack>13-14</Stack>
+        <Stack>24-25</Stack>
+    </Stacks>
+    <Labels>
+        <Label IDs="21,22">implements</Label>
+        <Label IDs="16,24">has a (or some)</Label>
+        <Label IDs="14,17">[calls]</Label>
+        <Label IDs="22,23">implements</Label>
+        <Label IDs="13,17">calls</Label>
+    </Labels>
+    <AutoFit>12-14, 16-17, 21-25, 29</AutoFit>
+    <NoteStyles>
+        <Style Name="Bubble (Blue)" ID="9F7936D4-261D-4B21-8DFC-23CC850B749D" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.561855 0.71062 0.779401</BorderColor>
+            <FillColor>0.702319 0.888276 0.974252</FillColor>
+        </Style>
+        <Style Name="Bubble (Green)" ID="F53DD7E6-104C-49BC-9FBC-9C4129EA9D85" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.572684 0.758969 0.558154</BorderColor>
+            <FillColor>0.715855 0.948712 0.697692</FillColor>
+        </Style>
+        <Style Name="Bubble (Pink)" ID="54C20737-6A3B-49FD-8582-CFD922ED0EB2" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.957566 0.766747 0.999616</FillColor>
+        </Style>
+        <Style Name="Bubble (Red)" ID="77A5B571-5D80-4F0B-8052-7D5C5AA98CCE" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.993495 0.701207 0.732587</FillColor>
+        </Style>
+        <Style Name="Bubble (Yellow)" ID="398DFD33-9375-4987-BF8F-7FBF4DDAF059" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.798177 0.714184 0.522055</BorderColor>
+            <FillColor>0.997722 0.89273 0.652569</FillColor>
+        </Style>
+        <Style Name="Red Text" ID="E3676367-69B5-4DEA-B123-131832E3B6F1" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="Yes" AffectNoteBody="No" AffectFade="No">
+            <TextColor>0.985948 0.0 0.026951</TextColor>
+        </Style>
+        <Style Name="Title Text" ID="D748BD40-24FB-40FF-A97A-53F6455265F8" AffectFontStyle="Yes" AffectAlignment="Yes" AffectTextColor="No" AffectNoteBody="No" AffectFade="No">
+            <FontSize>28.0</FontSize>
+            <IsBold>Yes</IsBold>
+        </Style>
+    </NoteStyles>
+    <UISettings>
+        <BackgroundColor>0.999767 0.98837 0.949907</BackgroundColor>
+        <DefaultFont>Consolas</DefaultFont>
+    </UISettings>
+    <PrintSettings PaperSize="595.275574,841.889771" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
+</ScappleDocument>

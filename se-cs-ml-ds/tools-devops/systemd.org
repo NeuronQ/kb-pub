@@ -1,0 +1,25 @@
+#+TITLE: SYSTEMD
+
+sudo systemctl start <service>
+
+sudo systemctl stop <service>
+
+sudo systemctl restart <service>
+
+sudo systemctl reload <service>
+
+sudo systemctl status <service>
+
+# auto-start on boot
+sudo systemctl enable <service>
+
+sudo systemctl disable <service>
+
+sudo systemctl is-enabled <service>
+
+sudo systemctl is-active <service>
+
+# hide (so it can't be started)
+sudo systemctl mask <service>
+
+sudo systemctl unmask <service>

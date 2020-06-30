@@ -1,0 +1,476 @@
+* Language Versions
+
+| Year | Name    | Features                        | Support           |
+|------+---------+---------------------------------+-------------------|
+| 1997 | ES1     |                                 |                   |
+|------+---------+---------------------------------+-------------------|
+| 1998 | ES2     |                                 |                   |
+|------+---------+---------------------------------+-------------------|
+| 1999 | ES3     | + regexps                       |                   |
+|      |         | + try/catch                     |                   |
+|------+---------+---------------------------------+-------------------|
+| 2009 | ES5     | + strict mode*                  | - all browsers    |
+|      |         | + JSON support                  | (IE9+*/10+)       |
+|      |         |                                 | - node ~4-6       |
+|------+---------+---------------------------------+-------------------|
+| 2011 | ES5.1   |                                 |                   |
+|------+---------+---------------------------------+-------------------|
+| 2015 | ES6     | + classes                       | - modern browsers |
+|      | Harmony | + modules*                      | (Edge 14+)        |
+|      |         | + =>                            | - node ~6.5+      |
+|      |         | + for/of, iterators, generators |                   |
+|      |         | + typed arrays, binary data     |                   |
+|      |         | + collections                   |                   |
+|      |         | + promises                      |                   |
+|      |         | + proxies                       |                   |
+|------+---------+---------------------------------+-------------------|
+| 2016 | ES7     | + ** exponentiation operator    |                   |
+|      |         | + Array.prototype.includes      |                   |
+|------+---------+---------------------------------+-------------------|
+| 2017 | ES8     | + await/async                   | node 7.6+         |
+|      |         |                                 |                   |
+
+* Version management - NVM
+
+[[https://github.com/creationix/nvm]]
+
+#+BEGIN_SRC sh
+  nvm --help  # hint: run this and chekcout 'Examples'
+  nvm ls  # list installed
+  nvm ls-remove  # list available to install
+  nvm install [8.6 / lts / --lts=argon / lts/argon]  # latests by default
+  nvm user ...
+  nvm uninstall ...
+  nvm run 8.6 app.js        # run app with version
+  nvm exec 8.6 node app.js  # run version in a subshell
+  nvm alias default ...
+#+END_SRC
+
+* Modules formats
+
+** CommonJS Modules
+Modules are loaded sync and three globals are injected into the
+module's code:
+- require :: function to load dependency modules
+- exports :: just an empty object (={}=) to which you add as fields
+             whatever you want exported (*IMPORTANT:* fields of
+             =exports= are only exported *iff* =module.exports= does
+             not already point to some other thing you assigned to
+             it!)
+- module :: assigning to `module.exports` (which btw, is the same
+            empty ={}= as =exports=) allows exporting things other
+            than modules (functions, constants)
+
+In Nodejs, =require= take taking one string argument interpreted as:
+- the name of a *builtin module*
+- an *absolute path* when starting with =/=
+- a *relative path* when starting with =../= or =./=
+- a path to a *local module*, searched in each =node_modules/= dir
+  found up the filesystem tree from the including file; such a module
+  can be either:
+  + a *file* line =my-module.js=
+  + a *directory*, from which either the =index.js= or the file name
+    in the =maon= property of the =package.json= file of that dir
+The extension of a file name passed to =require= is optional. The
+=.js=, =.json= (JSON files are parsed and their contents returned as a
+JS object) or =.node= (native extension binary) are tried in
+succession. The handlers for different extensions are defined in
+=require.extensions= but extending this mechanism is *deprecated* (but
+reading the contents of the referenced loading functions can be
+educational). Best practice is to *explicitly* specify the extensions
+if it's not =.js= (or binary module).
+
+
+Example:
+#+BEGIN_SRC javascript
+  var customerStore = require('store/customer');
+  var when = require('when');
+
+  // "cool" style
+  const {foo, baar} = require('foobar');
+
+  // this would've been exported if `module.exports` would
+  // not have been assigned to next
+  exports.name = 'Joe';
+
+  module.exports = function(id) {
+      return when(id).then(customerStore.load);
+  };
+
+  if (require.main === module) {
+      // The file is being executed directly (not with require)
+  }
+#+END_SRC
+
+More bluntly, in current Nodejs your code is sandwitched between these
+things (and the "injected globals" referenced above are actually the
+function arguments you see below), or maybe a slightly more elaborate
+version in newer Nodejs versions:
+
+#+BEGIN_SRC javascript
+  assert.deepEqual(
+      require('module').wrapper,
+      [  
+          '(function (exports, require, module, __filename, __dirname) { ',
+          '\n});'  
+      ]
+  );
+#+END_SRC
+
+[[https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8][This article]] explains some more Nodejs basic behaviors.
+
+** ES6 Modules
+
+Sync or async, should work in both browsers (with ~type=module~
+attribute on =<script>= tags) and Nodejs (with =.mjs= extension to
+signal that parsing and import of dependencies must be done /before/
+execution - see below).
+
+How they are supposed to work:
+1. module source is parsed
+2. imports and exports are determined from AST (aka "code shape")
+3. dependencies are imported (means also executed)
+4. module is executed
+
+This can in theory change a lot because the normal Nodejs way was for
+module execution to be started before dependencies have been imported.
+("Sane" code not reliant on import side effects should nevertheless
+behave as expected in both cases. This is why Babel's "broken"
+implementation which has CommonJS semantics but ES6-modules syntax
+still works ok in practice.)
+
+#+BEGIN_SRC javascript
+  // --- lib.js ---
+  export default 42; // default export (optional)
+
+  // named exports
+  export const sqrt = Math.sqrt;
+  export function square(x) {
+      return x * x;
+  }
+  export function diag(x, y) {
+      return sqrt(square(x) + square(y));
+  }
+
+  // alternative
+  function foo() {}
+  const D = 123;
+  const Y = 1;
+  export {D as default, foo as Foo, Y};
+
+  // ...
+
+  // --- index.js ---
+  import {square, diag} from './lib.js'; // extension should be optional
+  import libDefault from './lib.js'; // 42
+  // same as: import {default as libDefault} from './lib.js'
+  import * as lib from './lib.js'; // {default: 42, square: ..., ...}
+
+  // ...
+#+END_SRC
+
+Dynamic alternative will be an =import= function (maybe
+=require.import= in Nodejs?), that will take a posibly dinamically
+computed string and return a module promise:
+
+#+BEGIN_SRC javascript
+  System.import('some_module')
+      .then(some_module => {
+          // Use some_module
+      })
+      .catch(error => {
+          // ...
+      });
+
+#+END_SRC
+
+** Asynchronous Module Definition (AMD)
+Implemented by [[http://requirejs.org/][Require.js]], intended mostly for async loading of modules
+in browsers.
+
+Example:
+#+BEGIN_SRC javascript
+  define(['myModule', 'myOtherModule'], function (myModule, myOtherModule) {
+      console.log(myModule.hello()); // side effect
+      return {
+          bangingHellower: function () { // exported
+              return myModule.hello() + '!';
+          }
+      };
+  });
+#+END_SRC
+
+** UMD
+Basically a hack to allow writing modules that are both CommonJS
+(nodejs "old school" modules) and AMD.
+
+More here: https://github.com/umdjs/umd
+
+Example of AMD + "browser globals" + CommonJS UMD modules:
+#+BEGIN_SRC javascript
+  (function (root, factory) {
+      if (typeof define === 'function' && define.amd) {
+          // AMD. Register as an anonymous module.
+          define(['b'], factory);
+      } else if (typeof module === 'object' && module.exports) {
+          // Node. Does not work with strict CommonJS, but
+          // only CommonJS-like environments that support module.exports,
+          // like Node.
+          module.exports = factory(require('b'));
+      } else {
+          // Browser globals (root is window)
+          root.returnExports = factory(root.b);
+      }
+  }(this, function (b) {
+      // Use b in some fashion.
+
+      // Just return a value to define the module export.
+      // This example returns an object, but the module
+      // can return a function as the exported value.
+      return {};
+  }));
+#+END_SRC
+
+
+* Package managers
+
+** NPM
+NPM can refer to *two* things:
+1. The NPM package registry
+2. The NPM client app for fetching and sharing code on the NPM
+   registry
+
+*** Install/Update NPM tool
+Checking version and upgrading to latest
+#+BEGIN_SRC sh
+  npm -v  # version
+  npm install npm@latest -g  # might need `sudo`
+#+END_SRC
+
+*RECOMMENDED:* Fixing permissions for default ("global") packages
+install *without* sudo:
+#+BEGIN_SRC sh
+  ## -- Method 0
+  # ...just use a package manager that gets this right, like
+  # Brew or NVM etc.
+  
+  ## -- Method 1
+  # 1. find default packages dir:
+  npm config get prefix
+  # 2. IF you see just `/usr` THEN abandon this, goto method 2
+  #    ELSE change ownership to current user:
+  sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+  
+  ## -- Method 2
+  # Change default packages dir as described here:
+  # https://docs.npmjs.com/getting-started/fixing-npm-permissions
+#+END_SRC
+
+*** Install/Update/Remove packages using NPM
+*Global vs local* installing of packages:
+- generally always prefer local install
+- you *can* choose to install a package globally if you want to be
+  able to run some commands it provides /directly/ (aka "not through
+  =npm=") or /from anywhere/ -- this can often be avoided (see below)
+
+Running commands from node packages *without* installing them
+/globally/:
+- use =node bin= command to see where the binaries for local packages
+  will end up (likely =./node_modules/.bin=)
+- set your path to include this (maybe make some =activate.sh= script
+  for this), or make a bash function like this:
+  - =function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }=
+...or whatever makes more sense for your setup, but now you know where
+things are.
+
+**** Local package install & update
+Locally installing packages means installing them to the
+=node_modules/= subdir of the current dir.
+#+BEGIN_SRC sh
+  # IMPORTANT: in older node, this does NOT add it to the list
+  # in ./package.json; in current (tested 8.6) node, old version
+  # behavior can be triggered via `--no-save`
+  npm install lodash  # install to ./node_modules/ dir
+  npm i lodash  # ...same thing
+
+  npm uninstall lodash  # same behaviors as `install` w.r.t. package.json
+
+  npm help install  # get help
+  # also online at https://docs.npmjs.com/cli/install
+#+END_SRC
+
+A =package.json= file is used to manage the list of required local
+packages and their version. It can be create manually (it has two
+required field, =name= and =version=) or via =npm init= and answering
+some interactive questions (or add =--yes= flag to avoid answering
+them).
+#+BEGIN_SRC sh
+  npm install  # install all packages referenced by package.json but not already present
+  # IMPORTANT: this also installs development dependencies when tun without
+  # a `--only=prod[uction]` (older `--production`) flag or with NODE_ENV=production
+
+  # NOTE: `--save`/`-S` is default in newer node and equavalent to `--save-prod`/`-P`
+  # and `--no-save` needs to be passed for older no-save behavior
+  npm install --save lodash  # install package and add it to package.json
+  npm install --save-dev mocha  # install and add as dev dependency to package.json
+
+  npm install --force whatever     # force re-install
+  npm install lodash --save-exact  # install and save exact version in package.json
+
+  npm unistall --save lodash  # same behaviors as `install` w.r.t. package.json
+#+END_SRC
+Read more here: https://docs.npmjs.com/getting-started/using-a-package.json
+
+..but be warned, *these docs are usually outdated*, so trust =npm help install= or the
+online reference at https://docs.npmjs.com/cli/install better instead!
+
+*Updating* local packages is done by running =npm update= in the dir,
+or =npm outdated= to sow list of packages needing upgrade.
+
+**** Global package install and update
+First, a *warning:* don't do this unless it *truly* makes sense, and,
+when doing it, fix the permissions instead of =sudo ...= or =sudo -E
+...= (the =-E= is for preserving environment variables which is worth
+trying if you get http proxy errors or other"weird" stuff).
+
+#+BEGIN_SRC sh
+  npm install -g jshint  # `-g` is shortcut for `--global`
+  npm uninstall -g jshint
+  npm update -g jshint
+  npm update -g  # this updates ALL global packages
+
+  # USEFUL:
+  npm config get prefix  # see where globally installed packeg end up
+  # also woth checking `module.paths`, but take not that
+  # `node -e 'console.log(module.paths)'` "lies".
+#+END_SRC
+
+**** Package version locking and "shrinkwrap"
+Running =npm install= in different contexts (times, machines) wit the
+same =package.json= does not 100% guarantee the same exact packages
+tree being installed, not even when exact versions are specified.
+
+The easiest to understand example of such "unreliable" behavior can
+occur when your package depends on an exact version of a package =A=,
+but =A= instead depends on =B= via a not exact versions.
+
+To solve this problem (and a few other problems too), a special file
+=package-locks.json= is created which stores the state of your
+=node_module/= dir package tree. All regular commands will be aware
+and update/respect this file when present (also automagically create
+it when not), unless explicitly instructed to ignore it via the
+=--no-shrinkwrap= option.
+
+The =package-locks.json= file is intended to be checked into VCS but
+*not* shared in the packages registry. To share it, use it's /copy/
+named =npm-shrinkwrap.json= instead, created by the =npm shrinkwrap=
+command.
+
+When both =package-locks.json= and =npm-shrinkwrap.json= files are
+present, /all/ tools will /ignore/ =package-locks.json= and work with
+=npm-shrinkwrap.json= instead.
+
+Read more here: https://docs.npmjs.com/files/package-locks
+
+*** Extra powers of NPM
+NPM is *more than a package manager* (and, as a result, the
+=packages.json= file is more than a list of dependencies!).
+
+It can be used to run commands ("scripts") via =npm run ...= (alias of
+=npm run-script ...=, to run tests via =npm test= (but it's not an
+actual "test runner", it just starts it), and probably more. Refer to
+the appropriate documetation for these features.
+
+*Simple usage:* =npm run whatever= will simply run whatever command
+you specified in =script.whatever= of your =package.json=, and the
+=npm start= command is just an alias for =npm run start= (but if
+=script.start= is missing, it will run =node server.js=
+instead!). Others have more complex behaviors so make sure to read the
+docs...
+
+** Yarn
+Almost drop-in replacement for NPM with similar features. Created by
+people from Facebook because NPM didn't satisfy all their needs, now
+promoted by many as better alternative to NPM.
+
+*It works with NPM package registry packages just fine.*
+
+Some cool advantages:
+- package version locks are baked in and work as expected (like in
+  latest NPM version) and dependency checking algorithm is more
+  deterministic
+- packages are cached offline -- so if you installed a package before,
+  you can now install it even if you're offline
+- better security
+- faster
+- =yarn why package= -- shows "why" a package is installed (main
+  dependency? dependency of a dependency?) and other useful statistics
+  like its size and the size of its unique dependencies
+
+Yarn ignores NPM's =package-locks.json= and =npm-shrinkwrap.json= and
+uses its own =yarn.lock= instead.
+
+*NPM vs. Yarn divergence:* While the suggested /best practice/ by NPM
+is to not commit the share-able lockfile (=npm-shrinkwrap.json=) for
+/libraries/, in Yarn world it's almost agreed that =yarn.lock= should
+always be committed, for any kind of project. The "philosophy" of it
+is clearly argumented [[https://yarnpkg.com/blog/2016/11/24/lockfiles-for-all/][here]].
+
+_Please always do commit your =yarn.lock= file!_
+
+*Install:* use latest istructions from here:
+https://yarnpkg.com/en/docs/install
+
+*NPM 2 Yarn* guide: https://yarnpkg.com/lang/en/docs/migrating-from-npm/
+
+| NPM                                     | YARN                                   |
+|-----------------------------------------+----------------------------------------|
+| npm init                                | yarn init                              |
+|-----------------------------------------+----------------------------------------|
+| npm install --save package              | yarn add package                       |
+| # save not required on new versions     | # package.json is created if not found |
+| npm install package --save-dev          | yarn add package --dev                 |
+| npm install package@4.2                 | yarn add package@4.2                   |
+| npm install package@4.3 --save-exact/-E | yarn add package@4.2 --exact/-E        |
+|-----------------------------------------+----------------------------------------|
+| npm uninstall package                   | yarn remove package                    |
+|-----------------------------------------+----------------------------------------|
+| npm upgrade package                     | yarn upgrade package                   |
+|-----------------------------------------+----------------------------------------|
+| npm install                             | yarn install  # or just:               |
+|                                         | yarn                                   |
+|-----------------------------------------+----------------------------------------|
+| npm run                                 | yarn run                               |
+|-----------------------------------------+----------------------------------------|
+| npm bin                                 | yarn bin                               |
+|-----------------------------------------+----------------------------------------|
+| npm -g ...                              | yarn global ...                        |
+|-----------------------------------------+----------------------------------------|
+| npm config list                         | yarn config list                       |
+
+** Bower
+
+* Code quality and style tools
+
+** ESLint
+
+[[https://eslint.org/]]
+
+** Prettier
+
+[[https://github.com/prettier/prettier]]
+
+* Builders
+
+** Grunt
+** Gulp
+
+* Browser package bundlers
+
+** Browserify
+** Webpack
+
+
+
+
+

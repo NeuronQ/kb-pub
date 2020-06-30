@@ -1,0 +1,32 @@
+#+TITLE: Common Lisp
+
+* Tools
+
+** SLIME
+
+*** Editor/both:
+- C-c-k compile and load current buffer file
+- C-c-c compile and load toplevel form at point
+
+- M-p/n prev next input note
+-
+- M-. jump to definition
+- M-, jump back
+
+- C-c-d-d symbol info
+- C-c-d h open Hyperspeck docs (in browser)
+
+- C-c-] close parens
+
+- C-c-TAB autocomplete symbol
+
+- C-c-t slime-toggle-fancy-trace
+- C-c-w-c slime-who-calls
+- C-c-RET macro-expand-interactively
+
+- C-c M-d disassemble function
+
+- C-c I slime-inspect (type L to go back)
+
+*** REPL:
+- M-p/n next/prev input typed, like C-p/n in regular REPLs

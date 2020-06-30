@@ -1,0 +1,206 @@
+
+* Usual & VSCode
+
+** Open, Close, Save, Quit
+- open :: C-o
+- close ::
+  - M-F4
+  - C-w
+- save :: C-s
+- save as :: C-S-s
+- quit :: C-w
+
+** Buffers/Tabs
+- cycle through :: C-[S]-Tab
+- switch by number :: M-<#>
+
+** Select
+- S-<Left/Right>
+- all :: C-a
+
+** Copy, Paste
+- copy :: C-c
+- cut :: C-x
+- paste :: C-v
+
+** Search, Replace
+- search :: C-f | F3
+- search next :: F3
+- replace :: C-h
+
+** Undo, Redo
+- undo :: C-z
+- redo :: C-S-z
+
+* Emacs
+
+** Open, Close, Save, Quit
+- start :: emacs file1 file2 ...
+- open :: C-x C-f
+- close :: C-x k <RET>
+- save :: C-x C-s
+- save as :: C-x C-w
+- quit :: C-x C-c
+
+** Buffers/Tabs
+- list all :: C-x C-b
+- cycle through :: C-x <Left>, C-x <Right>
+- switch by name :: C-x b, ...type.., <RET>
+
+** Navigation
+- C-u-SPC :: back in current file
+- C-x-SPC :: back (across all files)
+
+** Select
+- C-<Spc>, <...movement...>
+- all :: C-x, h
+
+** Copy, Paste
+- copy :: M-w
+- cut :: C-w
+- paste ::
+  - C-y
+  - S-<Ins>
+- paste older :: C-y, M-y
+
+** Search, Replace
+- search ::
+  - forward :: C-s <string> <RET>
+  - backward :: C-r <string> <RET>
+- non-incremental search :: C-s <RET> <string> <RET>
+- search regexp :: C-M-s (forward), C-M-r (backward)
+- search next :: C-s again, similar for others
+- replace interactive :: M-% <string> <RET> <replacement> <RET>, then
+     for each press <SPC>/y to confirm replacement, or n to move to
+     next
+- replace interactive regexp :: C-M-%
+- replace unconditional ::
+  - M-x replace-string <RET> string <RET> newstring <RET>
+- replace unconditional regexp ::
+  - M-x replace-regexp <RET> regexp <RET> newstring <RET>
+
+** Undo, Redo
+- undo :: C-/ | C-x u | C-_
+- redo :: undo the undo, by doing anything else after an undo, like
+          just moving left/right, so that the undo action itself gets
+          pushed on the previous actions stack, then undo again to
+          "undo the last undo", aka "redo"
+
+** Moving
+- up/down :: C-p / C-n
+- left/right :: C-b / C-f
+- left/right by word :: M-b / M-f
+- screen up/down :: M-v/C-v
+- beginning/end of:
+  + buffer :: M-< / M->
+  + line :: C-a / C-e
+  + sentence :: M-a / M-e
+  + paragraph :: M-{ / M-}
+- current line to middle of screen :: C-l
+
+** Windows
+- vertical split :: C-x 3
+- horizontal split :: C-x 2
+- switch :: C-x o
+- close current :: C-x 0
+- close all except current :: C-x 1
+
+** Speedbar
+- M-x speedbar :: open
+- q :: close
+- f :: files mode (default)
+- b :: buffers mode
+- <Enter> :: open item
+- <Space> :: expand/collapse item
+- U :: parent dir
+- D :: delete item
+- R :: rename item
+- M :: move item
+
+** UI tweaks
+M-x customize-themes
+
+** Help
+- C-h k <keys...>
+- C-a a <about what...>
+- C-h m :: Help about current enabled modes (VERY USEFUL!!!)
+
+* Vim
+
+** Save as sudo
+: :w !sudo tee %
+
+** Open, Close, Save, Quit
+- start :: vim file1 file2 ...
+- open :: :e filename
+- close :: :q
+- save :: :w
+- save as :: :w filename
+- save w/ sudo :: :w !sudo tee %
+- quit :: :q! / C-z (preferably use :q without the ! to not ignore
+          unsaved changes!)
+
+** Buffers/Tabs
+- list all :: :ls
+- cycle through :: :bp / :bn
+- switch by :w !sudo tee %name :: :b ...type, <Tab>, <RET>
+
+** Select
+- enter visual mode: V, move around
+- lines :: enter viual line mode: S-V, move around
+- all :: just use :%<...commands> to refer to whole buffer
+
+** Copy, Paste
+*NOTE:* using <command key>+<movement> or <select>+<command key> will
+ use Vim's internal clipoard. To use the system clipboard, use
+ <selef>+:y+ for example (the "+" tells it to use system keyboard)
+- copy :: y
+- cut :: d
+- paste :: p
+- paste older :: <number>p
+
+** Search, Replace
+- search ::
+  - forward :: / ...text <RET>
+  - backward :: ? ...test <RET>
+- non-incremental search :: :set noincsearch
+- search regexp :: C-M-s (forward), C-M-r (backward)
+- search next/prev :: n / S-n
+- clear current search highlight :: :noh
+- case sensitivity :: :set [no]ignorecase
+  (*NOTE:* check value of a using ? like in :set smartcase?)
+- case sensitivity when containing uppercase letter :: set smartcase
+- replacing:
+  - to replace 'foo' with 'bar' (g flag means each occurence)
+    - current line :: :s/foo/bar/g
+    - buffer :: :%s/foo/bar/g
+    - selection :: <select> then type :.. (results in :'<'>s/foo/bar/g
+  - other flags:
+    - c :: confirm
+    - i :: case insensitive
+    - I :: case sensitive (use it if after :set ignorecase)
+
+** Undo, Redo
+- undo :: u
+- redo :: C-r
+- undo line :: U (*NOTE:* this does not navigate history, it's itself
+               a command so actually you can undo U)
+
+** Moving
+- up/down :: k/j
+- left/right :: h/l
+- left/right by word :: b/w (or e for end of word)
+- screen up/down :: C-b / C-f
+- beginning/end of:
+  + buffer :: gg / G
+  + line :: 0 / $
+  + sentence :: ( / )
+  + paragraph :: { / }
+- current line to middle of screen :: zz
+
+** Windows
+- vertical split :: :vsp
+- horizontal split :: :sp
+- switch :: C-w, h/j/k/l
+- close current :: :q
+- close all except current :: :only

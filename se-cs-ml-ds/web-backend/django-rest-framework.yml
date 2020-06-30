@@ -1,0 +1,24 @@
+Serializer(instance, data)
+  .save()
+    .create(validated_data)  -- if initialized with only data
+    .update(instance, validated_data)  -- if initialized with instance & data
+  .is_valid()
+  .validated_data
+
+Do N things:
+  1. Serialize objects: model instance -> dict of native python datatypes: |
+    serializer = CommentSerializer(comment)
+    serializer.data
+    # {'email': 'leila@example.com', 'content': 'foo bar', 'created': '2016-01-27T15:17:10.375877'}
+  2. DeSerialize (aka VALIDATE -- WTF DRF?!) objects: |
+    serializer = CommentSerializer(data=data)
+    serializer.is_valid()
+    # True
+    serializer.validated_data
+    # {'content': 'foo bar', 'email': 'leila@example.com', 'created': datetime.datetime(2012, 08, 22, 16, 20, 09, 822243)}
+  3. Create instances from data: |
+    serializer = CommentSerializer(data=data)
+    serializer.save()  # will create a new instance
+  4. Update existing instance from data: |
+    serializer = CommentSerializer(comment, data=data)
+    serializer.save()  # will update the existing `comment` instance

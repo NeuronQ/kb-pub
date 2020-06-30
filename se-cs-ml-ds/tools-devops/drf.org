@@ -1,0 +1,91 @@
+#+TITLE: Django Rest Framework
+
+* General architecture
+
+- *Serializers:*
+  1. model object -> data dict (-> json)
+  2. data -[validate]-> validated data
+  3. data -> create model object and save it in db
+  4. data -> update model object and its db representation
+- *Views:*
+  - API Views
+  - Model Views
+  - ViewSets
+
+* Serializers
+
+#+BEGIN_SRC python
+  class Serializer:
+      def __init__(self, instance=None, data=empty, **kwargs)
+
+      def save(self, **kwargs):
+          self.instance = model_instance
+          return model_instance
+
+      # called by `save()` when `instance` is NOT given
+      def create(self, validated_data):
+          return model_instance
+
+      # called by `save()` when `instance` is given
+      def update(self, instance, validated_data):
+          return model_instance
+
+      # these require `data` constructor argument to have been provided:
+      def is_valid(self, raise_exception=False):
+          return bool(...)
+      initial_data
+      # these are also only available after calling `is_valid()`
+      validated_data
+      errors
+      data  # can also be accessed when `data` not given to constructor...
+      # ...if use case is serialization
+#+END_SRC
+
+A Serializer object handles conversion between some plain data
+(eg. Python dict resulted from parsing some JSON) and Django model
+objects persisted in the DB. These former process obviosuly involves
+data validation. (And we can also *use a serializer for validation
+only* if that's what we need.)
+
+There are obviosuly 2 directions of the object<->data conversion:
+
+** Usage 1 - Serializing model objects to plain data
+This is done by instantiating a serializer with a model object, and
+then accessing its data property.
+#+BEGIN_SRC python
+  serializer = CommentSerializer(comment)
+  serializer.data
+  # {'email': 'leila@example.com', 'content': 'foo bar',
+  #  'created': '2016-01-27T15:17:10.375877'}
+#+END_SRC
+
+** Usage 2 - Using data to create/update DB-persisted Django model objects
+This can mean either creating a new entry, or updating an existing
+one.  In both cases we call =save()= method, which results in either a
+call to =create(validated_data) -> instance= or one to
+=update(instance, validated_data) -> instance=, depending on whether
+the =instance= parameter of the constructor has been provided.
+
+*Create* usage example:
+#+BEGIN_SRC python
+  serializer = CommentSerializer(data=data)
+  instance = serializer.save()  # will create a new instance (and save it to db)
+#+END_SRC
+
+*Update* usage example:
+#+BEGIN_SRC python
+  serializer = CommentSerializer(comment, data=data)
+  comment = serializer.save()  # will update the existing `comment` instance
+#+END_SRC
+
+Leaving the simplest case last since it kind of eschews much of the
+Serializer machinery anyway:
+
+** Usage 3 - Using a serializer for validation
+#+BEGIN_SRC python
+  serializer = MySerializer(data=data)
+  if serializer.is_valid():
+      do_smth_with(serializer.validated_data)
+  else:
+      do_smth2_with(serializer.errors, serializer.initial_data)
+#+END_SRC

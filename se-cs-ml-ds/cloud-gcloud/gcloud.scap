@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScappleDocument Version="1.1" ID="619B36EC-0E08-43E1-AA27-A3A5EE98BD3E">
+    <Notes>
+        <Note ID="0" FontSize="28.0" Position="295.0,200.0" Width="113.0">
+            <Appearance></Appearance>
+            <String>Storage</String>
+            <ConnectedNoteIDs>2, 5, 19-21</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,7</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="2" FontSize="12.0" Position="112.0,172.0" Width="95.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>unstructured /
+file-system-like</String>
+            <ConnectedNoteIDs>0, 32-33</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,31</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="4" FontSize="12.0" Position="12.0,375.0" Width="95.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Datastore</String>
+            <ConnectedNoteIDs>36</ConnectedNoteIDs>
+        </Note>
+        <Note ID="5" FontSize="12.0" Position="244.0,284.0" Width="61.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>“NoSQL”</String>
+            <ConnectedNoteIDs>0, 6, 13, 29-30, 36</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,7</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="6" FontSize="12.0" Position="324.0,445.0" Width="56.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Firestore</String>
+            <ConnectedNoteIDs>5, 10</ConnectedNoteIDs>
+        </Note>
+        <Note ID="7" FontSize="12.0" Position="60.0,61.0" Width="85.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Storage</String>
+            <ConnectedNoteIDs>9, 32</ConnectedNoteIDs>
+        </Note>
+        <Note ID="8" FontSize="28.0" Position="976.0,206.0" Width="159.0">
+            <Appearance></Appearance>
+            <String>Scheduling</String>
+            <ConnectedNoteIDs>11</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,10</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="9" FontSize="12.0" Position="20.0,12.0" Width="182.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>https://cloud.google.com/storage</String>
+            <ConnectedNoteIDs>7</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Underline="Yes" Link="https://cloud.google.com/storage">0,32</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="10" FontSize="12.0" Position="268.0,542.0" Width="192.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>https://firebase.google.com/docs/firestore</String>
+            <ConnectedNoteIDs>6</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Underline="Yes" Link="https://firebase.google.com/docs/firestore">0,42</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="11" FontSize="12.0" Position="1034.0,120.0" Width="97.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Scheduler</String>
+            <ConnectedNoteIDs>8, 12</ConnectedNoteIDs>
+        </Note>
+        <Note ID="12" FontSize="12.0" Position="1059.0,32.0" Width="194.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>https://cloud.google.com/scheduler</String>
+            <ConnectedNoteIDs>11</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Underline="Yes" Link="https://cloud.google.com/scheduler">0,34</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="13" FontSize="12.0" Position="102.0,450.0" Width="161.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Firebase Realtime Database</String>
+            <ConnectedNoteIDs>5, 14</ConnectedNoteIDs>
+        </Note>
+        <Note ID="14" FontSize="12.0" Position="28.0,507.0" Width="200.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>https://firebase.google.com/docs/database</String>
+            <ConnectedNoteIDs>13</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Underline="Yes" Link="https://firebase.google.com/docs/database">0,41</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="15" FontSize="12.0" Position="466.0,477.0" Width="55.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>BigTable</String>
+            <ConnectedNoteIDs>29</ConnectedNoteIDs>
+        </Note>
+        <Note ID="16" FontSize="12.0" Position="789.0,424.0" Width="59.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>BigQuery</String>
+            <ConnectedNoteIDs>24, 30</ConnectedNoteIDs>
+        </Note>
+        <Note ID="17" FontSize="12.0" Position="803.0,227.0" Width="67.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud SQL</String>
+            <ConnectedNoteIDs>28</ConnectedNoteIDs>
+        </Note>
+        <Note ID="18" FontSize="12.0" Position="701.0,33.0" Width="89.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Spanner</String>
+            <ConnectedNoteIDs>25</ConnectedNoteIDs>
+        </Note>
+        <Note ID="19" FontSize="12.0" Position="458.0,285.0" Width="62.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>relational</String>
+            <ConnectedNoteIDs>0, 24-25, 28</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,10</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="20" FontSize="12.0" Position="522.0,57.0" Width="113.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Memorystore</String>
+            <ConnectedNoteIDs>0</ConnectedNoteIDs>
+        </Note>
+        <Note ID="21" FontSize="12.0" Position="252.0,103.0" Width="200.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>https://cloud.google.com/products/databases</String>
+            <ConnectedNoteIDs>0</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Underline="Yes" Link="https://cloud.google.com/products/databases">0,43</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="22" FontSize="12.0" Position="933.0,431.0" Width="92.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Dataproc</String>
+        </Note>
+        <Note ID="23" FontSize="12.0" Position="910.0,524.0" Width="90.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Dataflow</String>
+        </Note>
+        <Note ID="24" FontSize="12.0" Position="541.0,320.0" Width="108.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>- maybe sort of
+- column oriented?</String>
+            <ConnectedNoteIDs>16, 19</ConnectedNoteIDs>
+        </Note>
+        <Note ID="25" FontSize="12.0" Position="533.0,169.0" Width="53.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>infinitely
+scalable</String>
+            <ConnectedNoteIDs>18-19</ConnectedNoteIDs>
+        </Note>
+        <Note ID="28" FontSize="12.0" Position="581.0,246.0" Width="74.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>Postgres or MySQL compatible</String>
+            <ConnectedNoteIDs>17, 19</ConnectedNoteIDs>
+        </Note>
+        <Note ID="29" FontSize="12.0" Position="378.0,386.0" Width="70.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>update &amp; low-latency</String>
+            <ConnectedNoteIDs>5, 15</ConnectedNoteIDs>
+        </Note>
+        <Note ID="30" FontSize="12.0" Position="465.0,370.0" Width="96.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>rare/no updates,
+higher latency</String>
+            <ConnectedNoteIDs>5, 16</ConnectedNoteIDs>
+        </Note>
+        <Note ID="31" FontSize="12.0" Position="228.0,55.0" Width="89.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Filestore</String>
+            <ConnectedNoteIDs>33</ConnectedNoteIDs>
+        </Note>
+        <Note ID="32" FontSize="12.0" Position="59.0,116.0" Width="103.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>buckets &amp; objects</String>
+            <ConnectedNoteIDs>2, 7</ConnectedNoteIDs>
+        </Note>
+        <Note ID="33" FontSize="12.0" Position="178.0,113.0" Width="59.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>actual FS</String>
+            <ConnectedNoteIDs>2, 31</ConnectedNoteIDs>
+        </Note>
+        <Note ID="34" FontSize="12.0" Position="912.0,360.0" Width="98.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>Cloud Dataprep</String>
+            <Formatting>
+                <FormatRange Bold="Yes">0,14</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="35" FontSize="12.0" Position="867.0,316.0" Width="75.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>Data Studio</String>
+            <Formatting>
+                <FormatRange Bold="Yes">0,11</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="36" FontSize="12.0" Position="133.0,310.0" Width="75.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>obsolete, replaced by Firestore</String>
+            <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Italic="Yes">0,22</FormatRange>
+                <FormatRange Bold="Yes" Italic="Yes">22,9</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="37" FontSize="28.0" Position="823.367188,889.914062" Width="150.0">
+            <Appearance></Appearance>
+            <String>Serverless</String>
+            <ConnectedNoteIDs>40-41</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,10</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="38" FontSize="12.0" Position="464.597656,820.222656" Width="95.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Functions</String>
+            <ConnectedNoteIDs>40</ConnectedNoteIDs>
+        </Note>
+        <Note ID="39" FontSize="12.0" Position="772.671875,665.785156" Width="65.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Run</String>
+            <ConnectedNoteIDs>41-43, 47</ConnectedNoteIDs>
+        </Note>
+        <Note ID="40" FontSize="12.0" Position="621.804688,832.644531" Width="111.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>simple functions in:
+- Node.js
+- Go
+- Java
+- Python</String>
+            <ConnectedNoteIDs>37-38</ConnectedNoteIDs>
+        </Note>
+        <Note ID="41" FontSize="12.0" Position="820.097656,787.398438" Width="64.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>stateless
+containers</String>
+            <ConnectedNoteIDs>37, 39</ConnectedNoteIDs>
+        </Note>
+        <Note ID="42" FontSize="28.0" Position="1250.855469,836.667969" Width="155.0">
+            <Appearance></Appearance>
+            <String>Containers</String>
+            <ConnectedNoteIDs>39, 43, 47</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,10</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="43" FontSize="12.0" Position="1249.515625,731.613281" Width="70.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Build</String>
+            <ConnectedNoteIDs>39, 42</ConnectedNoteIDs>
+        </Note>
+        <Note ID="44" FontSize="28.0" Position="1382.0,540.0" Width="239.0">
+            <Appearance></Appearance>
+            <String>Events &amp; Queues</String>
+            <ConnectedNoteIDs>45-46</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,15</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="45" FontSize="12.0" Position="1309.0,369.0" Width="74.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Tasks</String>
+            <ConnectedNoteIDs>44</ConnectedNoteIDs>
+        </Note>
+        <Note ID="46" FontSize="12.0" Position="1116.0,526.0" Width="90.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>Cloud Pub-Sub</String>
+            <ConnectedNoteIDs>44</ConnectedNoteIDs>
+        </Note>
+        <Note ID="47" FontSize="12.0" Position="1447.640625,684.402344" Width="34.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>GKE</String>
+            <ConnectedNoteIDs>39, 42</ConnectedNoteIDs>
+        </Note>
+    </Notes>
+    <BackgroundShapes></BackgroundShapes>
+    <AutoFit>0, 2, 4-9, 11-13, 15-20, 22-25, 30-35, 37-47</AutoFit>
+    <NoteStyles>
+        <Style Name="Bubble (Blue)" ID="C1CEBC9D-8FD8-4E27-912B-D9D8F192EF9C" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.561855 0.71062 0.779401</BorderColor>
+            <FillColor>0.702319 0.888276 0.974252</FillColor>
+        </Style>
+        <Style Name="Bubble (Green)" ID="D4EF509E-A9A9-4B21-8BCF-8259511BB5D1" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.572684 0.758969 0.558154</BorderColor>
+            <FillColor>0.715855 0.948712 0.697692</FillColor>
+        </Style>
+        <Style Name="Bubble (Pink)" ID="0DDCE9B3-D2CB-46C2-A5F3-84969FC6D4EE" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.957566 0.766747 0.999616</FillColor>
+        </Style>
+        <Style Name="Bubble (Red)" ID="9A1E541D-EBA8-424C-9A59-451F1024C88E" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.993495 0.701207 0.732587</FillColor>
+        </Style>
+        <Style Name="Bubble (Yellow)" ID="A795F3C9-85FD-49E8-AA0A-0395F8BDBBCA" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.798177 0.714184 0.522055</BorderColor>
+            <FillColor>0.997722 0.89273 0.652569</FillColor>
+        </Style>
+        <Style Name="Red Text" ID="A8A2A190-AFC3-463F-BFF2-FE2B14F3B517" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="Yes" AffectNoteBody="No" AffectFade="No">
+            <TextColor>0.985948 0.0 0.026951</TextColor>
+        </Style>
+        <Style Name="Title Text" ID="608408DC-672E-4A8F-823C-723528D1851F" AffectFontStyle="Yes" AffectAlignment="Yes" AffectTextColor="No" AffectNoteBody="No" AffectFade="No">
+            <FontSize>28.0</FontSize>
+            <IsBold>Yes</IsBold>
+        </Style>
+    </NoteStyles>
+    <UISettings>
+        <BackgroundColor>0.999767 0.98837 0.949907</BackgroundColor>
+        <DefaultFont>Helvetica</DefaultFont>
+    </UISettings>
+    <PrintSettings PaperSize="595.275574,841.889771" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
+</ScappleDocument>
