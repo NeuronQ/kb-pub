@@ -29,4 +29,19 @@ stty -ixon  # disable "feature"
 bash -n my-script.sh  # syntax check only (no execute)
 bash -x my-script.sh  # also print commands before executing them
 
-## 
+## Sane prelude for scripts
+# shebang lines:
+  #!/usr/bin/env bash
+  #!/bin/bash
+  #!/bin/sh
+set -Eeuo pipefail
+# where:
+# - `-e` exists on first error:
+#     use `command_that_is_ok to fail || true` to *allow* failure
+# - `-u` errors on undefined variables
+#     use `${VAR:-}` to check for variables existend
+#     use `${VAR:-$DEFAULT}`
+# - `-o pipefails` makes the exist code of a pipeline be that of the
+#   rightmost command to exist with nonzeero statatus (what you'd
+#   kind of expect to be the "normal"...)
+# - -E "normalizes" error trapping to also work inside functions

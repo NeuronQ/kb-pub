@@ -137,7 +137,7 @@ M-x customize-themes
 - save :: :w
 - save as :: :w filename
 - save w/ sudo :: :w !sudo tee %
-- quit :: :q! / C-z (preferably use :q without the ! to not ignore
+- quit :: :q! / ZZ (preferably use :q without the ! to not ignore
           unsaved changes!)
 
 ** Buffers/Tabs
@@ -153,7 +153,7 @@ M-x customize-themes
 ** Copy, Paste
 *NOTE:* using <command key>+<movement> or <select>+<command key> will
  use Vim's internal clipoard. To use the system clipboard, use
- <selef>+:y+ for example (the "+" tells it to use system keyboard)
+ "+yiw for example (the "+" tells it to use system keyboard)
 - copy :: y
 - cut :: d
 - paste :: p

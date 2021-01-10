@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.1" ID="28A28639-815B-4754-A32E-D93385805B48">
     <Notes>
-        <Note ID="0" FontSize="12.0" Position="48.09375,25.789062" Width="306.0">
+        <Note ID="0" FontSize="12.0" Position="48.0,26.0" Width="306.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.061 0.5 0.84</TextColor>
@@ -20,7 +20,7 @@ docker push username:repository:tag</String>
                 <FormatRange Italic="Yes">144,31</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="1" FontSize="13.0" Position="402.507812,103.632812" Width="59.0">
+        <Note ID="1" FontSize="13.0" Position="408.121094,97.480469" Width="59.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -29,7 +29,7 @@ docker push username:repository:tag</String>
             <ConnectedNoteIDs>0, 2, 6</ConnectedNoteIDs>
             <PointsToNoteIDs>2</PointsToNoteIDs>
         </Note>
-        <Note ID="2" FontSize="13.0" Position="377.613281,208.636719" Width="87.0">
+        <Note ID="2" FontSize="13.0" Position="378.0,209.0" Width="87.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -38,7 +38,7 @@ docker push username:repository:tag</String>
             <ConnectedNoteIDs>1, 3, 5, 30</ConnectedNoteIDs>
             <PointsToNoteIDs>3</PointsToNoteIDs>
         </Note>
-        <Note ID="3" FontSize="13.0" Position="390.855469,335.59375" Width="73.0">
+        <Note ID="3" FontSize="13.0" Position="391.0,336.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -47,7 +47,7 @@ docker push username:repository:tag</String>
             <ConnectedNoteIDs>2, 13-14, 26</ConnectedNoteIDs>
             <PointsToNoteIDs>14</PointsToNoteIDs>
         </Note>
-        <Note ID="4" FontSize="12.0" Position="364.84375,145.0" Width="114.0">
+        <Note ID="4" FontSize="12.0" Position="365.0,145.0" Width="114.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -59,7 +59,7 @@ a container</String>
                 <FormatRange Bold="Yes">19,9</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="5" FontSize="12.0" Position="13.894531,178.417969" Width="315.0">
+        <Note ID="5" FontSize="12.0" Position="14.0,178.0" Width="315.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.187 0.59 0.01</TextColor>
@@ -75,7 +75,7 @@ docker container rm $(docker container ls -aq)
 docker container --help</String>
             <ConnectedNoteIDs>2</ConnectedNoteIDs>
         </Note>
-        <Note ID="6" FontSize="12.0" Position="500.582031,69.132812" Width="74.0">
+        <Note ID="6" FontSize="12.0" Position="501.0,69.0" Width="74.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1" Style="Square"></Border>
@@ -94,7 +94,7 @@ docker container --help</String>
                 <FormatRange Italic="Yes">28,19</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="8" FontSize="12.0" Position="352.699219,249.390625" Width="160.0">
+        <Note ID="8" FontSize="12.0" Position="353.0,249.0" Width="160.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -107,7 +107,7 @@ run as a service</String>
                 <FormatRange Bold="Yes">51,7</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="9" FontSize="13.0" Position="619.40625,204.359375" Width="87.0">
+        <Note ID="9" FontSize="13.0" Position="619.0,204.0" Width="87.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -116,7 +116,7 @@ run as a service</String>
             <ConnectedNoteIDs>10, 31</ConnectedNoteIDs>
             <PointsToNoteIDs>10</PointsToNoteIDs>
         </Note>
-        <Note ID="10" FontSize="13.0" Position="616.890625,333.929688" Width="73.0">
+        <Note ID="10" FontSize="13.0" Position="617.0,334.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -125,7 +125,7 @@ run as a service</String>
             <ConnectedNoteIDs>9, 13-14</ConnectedNoteIDs>
             <PointsToNoteIDs>14</PointsToNoteIDs>
         </Note>
-        <Note ID="13" FontSize="12.0" Position="487.6875,286.175781" Width="127.0">
+        <Note ID="13" FontSize="12.0" Position="488.0,286.0" Width="127.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.0 0.0 0.0</TextColor>
@@ -134,7 +134,7 @@ run as a service</String>
             <String>docker-compose.yml</String>
             <ConnectedNoteIDs>3, 10, 14</ConnectedNoteIDs>
         </Note>
-        <Note ID="14" FontSize="13.0" Position="532.089844,394.21875" Width="44.0">
+        <Note ID="14" FontSize="13.0" Position="532.0,394.0" Width="44.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -143,7 +143,7 @@ run as a service</String>
             <ConnectedNoteIDs>3, 10, 13, 28</ConnectedNoteIDs>
             <PointsToNoteIDs>28</PointsToNoteIDs>
         </Note>
-        <Note ID="15" FontSize="13.0" Position="479.78125,460.351562" Width="59.0">
+        <Note ID="15" FontSize="13.0" Position="480.0,460.0" Width="59.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -151,7 +151,7 @@ run as a service</String>
             <String>Task 10</String>
             <ConnectedNoteIDs>30</ConnectedNoteIDs>
         </Note>
-        <Note ID="16" FontSize="13.0" Position="479.78125,489.351562" Width="59.0">
+        <Note ID="16" FontSize="13.0" Position="480.0,489.22168" Width="59.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -159,13 +159,13 @@ run as a service</String>
             <String>Task 11</String>
             <ConnectedNoteIDs>30</ConnectedNoteIDs>
         </Note>
-        <Note ID="20" FontSize="13.0" Position="476.324219,435.753906" Width="73.0">
+        <Note ID="20" FontSize="13.0" Position="476.0,436.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Service 1</String>
         </Note>
-        <Note ID="22" FontSize="13.0" Position="572.972656,463.230469" Width="59.0">
+        <Note ID="22" FontSize="13.0" Position="573.0,463.0" Width="59.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
@@ -173,13 +173,13 @@ run as a service</String>
             <String>Task 20</String>
             <ConnectedNoteIDs>31</ConnectedNoteIDs>
         </Note>
-        <Note ID="24" FontSize="13.0" Position="569.972656,439.230469" Width="73.0">
+        <Note ID="24" FontSize="13.0" Position="570.0,439.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Service 2</String>
         </Note>
-        <Note ID="26" FontSize="12.0" Position="30.988281,347.8125" Width="200.0">
+        <Note ID="26" FontSize="12.0" Position="31.0,348.0" Width="200.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.061 0.5 0.84</TextColor>
@@ -190,14 +190,14 @@ docker service ps srv1  # list tasks in a service
 docker inspect task_or_container</String>
             <ConnectedNoteIDs>3</ConnectedNoteIDs>
         </Note>
-        <Note ID="28" FontSize="13.0" Position="881.3125,378.679688" Width="44.0">
+        <Note ID="28" FontSize="13.0" Position="881.0,379.0" Width="44.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Swarm</String>
             <ConnectedNoteIDs>14, 68</ConnectedNoteIDs>
         </Note>
-        <Note ID="29" FontSize="12.0" Position="54.757812,479.476562" Width="293.0">
+        <Note ID="29" FontSize="12.0" Position="55.0,479.0" Width="293.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.0 0.0 0.0</TextColor>
@@ -210,7 +210,7 @@ docker inspect task_or_container</String>
                 <FormatRange Bold="Yes">196,55</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="30" FontSize="12.0" Position="291.246094,393.273438" Width="127.0">
+        <Note ID="30" FontSize="12.0" Position="291.0,393.0" Width="127.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -219,46 +219,46 @@ inside a service
 are called tasks</String>
             <ConnectedNoteIDs>2, 15-16</ConnectedNoteIDs>
         </Note>
-        <Note ID="31" FontSize="12.0" Position="667.53125,443.996094" Width="20.0">
+        <Note ID="31" FontSize="12.0" Position="668.0,444.0" Width="20.0">
             <Appearance>
                 <Alignment>Center</Alignment>
             </Appearance>
             <String>=</String>
             <ConnectedNoteIDs>9, 22</ConnectedNoteIDs>
         </Note>
-        <Note ID="52" FontSize="13.0" Position="925.78125,425.914062" Width="59.0">
+        <Note ID="52" FontSize="13.0" Position="926.0,426.0" Width="59.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Cluster</String>
         </Note>
-        <Note ID="53" FontSize="13.0" Position="924.765625,463.765625" Width="73.0">
+        <Note ID="53" FontSize="13.0" Position="925.0,464.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
             </Appearance>
             <String>Machine 1</String>
         </Note>
-        <Note ID="54" FontSize="13.0" Position="833.757812,463.277344" Width="51.0">
+        <Note ID="54" FontSize="13.0" Position="834.0,463.0" Width="51.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Node 1</String>
         </Note>
-        <Note ID="55" FontSize="13.0" Position="925.492188,510.816406" Width="73.0">
+        <Note ID="55" FontSize="13.0" Position="925.0,511.0" Width="73.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <Border Weight="1"></Border>
             </Appearance>
             <String>Machine 2</String>
         </Note>
-        <Note ID="56" FontSize="13.0" Position="835.261719,509.820312" Width="51.0">
+        <Note ID="56" FontSize="13.0" Position="835.0,510.0" Width="51.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
             <String>Node 2</String>
         </Note>
-        <Note ID="61" FontSize="12.0" Position="696.648438,373.820312" Width="103.0">
+        <Note ID="61" FontSize="12.0" Position="697.0,374.0" Width="103.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -286,7 +286,7 @@ docker run -d -p 4000:80 -v "pgdata:/var/lib/postgresql/data" postgres
                 <FormatRange Bold="Yes">140,52</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="64" FontSize="12.0" Position="788.433594,199.671875" Width="412.0">
+        <Note ID="64" FontSize="12.0" Position="788.0,200.0" Width="412.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.061 0.5 0.84</TextColor>
@@ -299,7 +299,7 @@ docker stack services mystack  # list services in stack
 docker stack rm mystack</String>
             <ConnectedNoteIDs>61, 65, 67</ConnectedNoteIDs>
         </Note>
-        <Note ID="65" FontSize="12.0" Position="1068.933594,126.238281" Width="312.0">
+        <Note ID="65" FontSize="12.0" Position="1069.0,126.0" Width="312.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.187 0.59 0.01</TextColor>
@@ -324,7 +324,7 @@ docker swarm leave --force  # run on swarm manager node</String>
                 <FormatRange Bold="Yes">0,28</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="68" FontSize="12.0" Position="1036.671875,364.0" Width="361.0">
+        <Note ID="68" FontSize="12.0" Position="1037.0,364.0" Width="361.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.061 0.5 0.84</TextColor>
@@ -340,7 +340,7 @@ docker-machine ssh myvm1 \
     "docker swarm init --advertise-addr &lt;myvm1 ip&gt;"</String>
             <ConnectedNoteIDs>28, 69</ConnectedNoteIDs>
         </Note>
-        <Note ID="69" FontSize="12.0" Position="1081.0,527.742188" Width="286.0">
+        <Note ID="69" FontSize="12.0" Position="1081.0,528.0" Width="286.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.187 0.59 0.01</TextColor>
@@ -353,7 +353,7 @@ docker-machine ssh myvm1 \
    "docker swarm join-token -q worker"</String>
             <ConnectedNoteIDs>68, 70</ConnectedNoteIDs>
         </Note>
-        <Note ID="70" FontSize="12.0" Position="882.703125,683.585938" Width="319.0">
+        <Note ID="70" FontSize="12.0" Position="883.0,684.0" Width="319.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.061 0.5 0.84</TextColor>
@@ -365,7 +365,7 @@ docker-machine stop myvm1
 docker-machine scp ./local-file myvm1:~/data</String>
             <ConnectedNoteIDs>69, 71</ConnectedNoteIDs>
         </Note>
-        <Note ID="71" FontSize="12.0" Position="640.769531,590.46875" Width="415.0">
+        <Note ID="71" FontSize="12.0" Position="641.0,590.0" Width="415.0">
             <Appearance>
                 <Alignment>Left</Alignment>
                 <TextColor>0.187 0.59 0.01</TextColor>
@@ -377,7 +377,7 @@ eval $(docker-machine env myvm1)
 eval $(docker-machine env -u)</String>
             <ConnectedNoteIDs>70</ConnectedNoteIDs>
         </Note>
-        <Note ID="72" FontSize="13.0" Position="18.628906,650.585938" Width="359.0">
+        <Note ID="72" FontSize="13.0" Position="19.0,651.0" Width="359.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -411,7 +411,7 @@ v2.1 14-01-2020</String>
                 <FormatRange Bold="Yes">0,6</FormatRange>
             </Formatting>
         </Note>
-        <Note ID="76" FontSize="12.0" Position="1581.8125,283.921875" Width="200.0">
+        <Note ID="76" FontSize="12.0" Position="1582.0,284.0" Width="200.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
@@ -425,33 +425,33 @@ v2.1 14-01-2020</String>
             </Appearance>
             <ConnectedNoteIDs>18</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="18" Sticky="Yes" Position="469.78125,428.0" Width="83.0" Height="96.0">
+        <Shape ID="18" Sticky="Yes" Position="470.0,428.0" Width="83.0" Height="96.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>25</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="21" Sticky="Yes" Position="562.972656,431.230469" Width="85.0" Height="69.0">
+        <Shape ID="21" Sticky="Yes" Position="563.0,431.0" Width="85.0" Height="69.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
         </Shape>
-        <Shape ID="60" Sticky="Yes" Position="813.78125,369.027344" Width="205.0" Height="199.22168">
+        <Shape ID="60" Sticky="Yes" Position="814.0,369.0" Width="205.0" Height="199.22168">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
         </Shape>
-        <Shape ID="57" Sticky="No" Position="914.78125,416.027344" Width="94.0" Height="135.22168">
+        <Shape ID="57" Sticky="No" Position="915.0,416.0" Width="94.0" Height="135.22168">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
         </Shape>
-        <Shape ID="58" Sticky="No" Position="823.78125,456.027344" Width="180.0" Height="36.0">
+        <Shape ID="58" Sticky="No" Position="824.0,456.0" Width="180.0" Height="36.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
         </Shape>
-        <Shape ID="59" Sticky="No" Position="824.78125,502.027344" Width="178.0" Height="39.0">
+        <Shape ID="59" Sticky="No" Position="825.0,502.0" Width="178.0" Height="39.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
@@ -499,5 +499,5 @@ v2.1 14-01-2020</String>
         <BackgroundColor>1.0 0.991526 0.961543</BackgroundColor>
         <DefaultFont>Consolas</DefaultFont>
     </UISettings>
-    <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
+    <PrintSettings PaperSize="595.275574,841.889771" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
 </ScappleDocument>
