@@ -87,8 +87,8 @@ M-x flyspell-mode
 * Checkboxes
 - [ ] just type them
 - [ ] M-S-<Enter> to insert a new one
-- [ ] C-c C-c to toggle checked/unckecled
-  - [ ] usual M-[S]-<Left>/<Right> to change indent/nesting
+- [-] C-c C-c to toggle checked/unckecled
+  - [X] usual M-[S]-<Left>/<Right> to change indent/nesting
   - [ ] now parent checked status depends on children
 - [0/1] type [0/2 ] to use n/total style for parent status
   + [ ] and they will update automatically on child changes
@@ -290,7 +290,7 @@ See:
       :PROPERTIES:
       :EST:      3-4
       :Analysis: 1
-      :Design:   1-2
+      :Design:   1-20
       :QA:       1
       :END:
 

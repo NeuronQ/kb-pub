@@ -204,3 +204,38 @@ M-x customize-themes
 - switch :: C-w, h/j/k/l
 - close current :: :q
 - close all except current :: :only
+
+** Plugins
+
+*** Built-in package management functionality
+
+The whole documentation: `:help packages`.
+
+There is `packpath` variable (`:set packpath?` to show it) that has a list of path from which plugins will be added if present. It usually is:
+- `~/.vim/pack` for regular Vim
+- `~/.local/share/nvim/pack` for Neovim
+
+Inside packpath, dirs are ment to represet "packages" and their subdirs "plugins". In practice you'll also have plugins with no package, and you'll create a "/plugins" package or something like that for them. (Also, 3rd party Vim plugin/package managers tend to have such a general package specific to them.)
+
+From here, Vim will automatically load the scripts:
+- $PACKPATH/the_pkg_name/start/the_plugin_name/plugin/*.vim
+- based on current file type, a script from:
+  - $PACKPATH/the_pkg_name/start/the_plugin_name/ftplugin/<file type>/*.vim
+
+**NOTE:** This is the *simplest* and most common case... IRL there are more possiblities.
+
+Example installing plugins with built in functionality:
+
+```sh
+# for Neovim (use ~/.vim/pack) for Vim
+PACKPATH=~/.local/share/nvim/site/pack
+
+# note use "plugins" if there's no package name
+mkdir -p "$PACKPATH/the_pkg_name/start
+cd "$PACKPATH/the_pkg_name/start"
+git clone <the plugin repo>
+
+
+```
+
+
